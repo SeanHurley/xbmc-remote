@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Xbmc::Remote::VERSION
   spec.authors       = ["hurley"]
   spec.email         = ["sean.hurley6@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Ruby client to control XBMC}
+  spec.description   = %q{Uses the jsonrpc procol to issue commands to control XBMC}
+  spec.homepage      = "https://github.com/SeanHurley/xbmc-remote"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
