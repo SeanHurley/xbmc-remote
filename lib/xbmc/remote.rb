@@ -8,16 +8,16 @@ module XBMC
       self.address = xbmc_address
     end
 
-    def send_method(method_name, params={})
+    def send_command(method_name, params={})
       HTTParty.post(base_address,
         :body => {:method => method_name, :params => params, :jsonrpc => "2.0",}.to_json,
         :headers => { 'Content-Type' => 'application/json' },
       )
     end
 
-    def methods
+    def commands
       response = HTTParty.get(base_address)
-      response["methods"].map { |method_name, method| method_name }
+      response["methods"].map { |name, json| "#{name}: #{json["description"]}" }
     end
 
     private
