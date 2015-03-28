@@ -10,7 +10,7 @@ module XBMC
 
     def send_command(method_name, params={})
       HTTParty.post(base_address,
-        :body => {:method => method_name, :params => params, :jsonrpc => "2.0",}.to_json,
+        :body => {:id => get_id, :method => method_name, :params => params, :jsonrpc => "2.0",}.to_json,
         :headers => { 'Content-Type' => 'application/json' },
       )
     end
@@ -24,6 +24,10 @@ module XBMC
     def base_address
       return @base_address if defined? @base_address
       @base_address = URI.join(address, "jsonrpc")
+    end
+
+    def get_id
+      rand(10**12)
     end
   end
 end
